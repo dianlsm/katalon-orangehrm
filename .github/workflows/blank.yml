@@ -15,7 +15,7 @@ jobs:
           token: ${{ secrets.GH_TOKEN }} 
 
       - name: Run Katalon Studio Project
-        uses: katalon-studio/katalon-studio-github-action@v3
+        uses: katalon-studio/katalon-studio-github-action@v2
         with:
  
           version: 'latest' 
