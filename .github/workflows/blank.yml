@@ -24,7 +24,7 @@ jobs:
         uses: katalon-studio/katalon-studio-github-action@v2
         with:
  
-          version: 'latest' 
+          version: '11.0.0' 
           projectPath: '${{ github.workspace }}'
           args: '-noSplash -browserType="Chrome" -retry=0 -statusDelay=15 -testSuitePath="Test Suites/TS_Login"'
         env:
