@@ -16,9 +16,9 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.KATALON_TOKEN }} 
-          persist-credentials: false
+        # with:
+        #   token: ${{ secrets.KATALON_TOKEN }} 
+        #   persist-credentials: false
 
       - name: Run Katalon Studio Project
         uses: katalon-studio/katalon-studio-github-action@v2
