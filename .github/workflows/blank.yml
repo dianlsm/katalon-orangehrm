@@ -1,27 +1,25 @@
-name: Katalon CI Pipeline
+name: Katalon Studio Execution Example
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: [ "main" ]
+  workflow_dispatch: # Supaya bisa klik "Run workflow" manual di GitHub
 
 jobs:
-  build:
-    runs-on: windows-latest
-
+  katalon-test:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout Code
         uses: actions/checkout@v4
-
-      - name: Show project structure
-        run: dir
-
-      - name: Simulate test execution
-        run: echo "Katalon test execution simulation"
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
         with:
-          name: dummy-report
-          path: .
+          token: ${{ secrets.GH_TOKEN }} 
+
+      - name: Run Katalon Studio Project
+        uses: katalon-studio/katalon-studio-github-action@v3
+        with:
+ 
+          version: 'latest' 
+          projectPath: '${{ github.workspace }}'
+          args: '-noSplash -browserType="Chrome" -retry=0 -statusDelay=15 -testSuitePath="Test Suites/TS_Login"'
+        env:
+          KATALON_API_KEY: ${{ secrets.GH_TOKEN }}
