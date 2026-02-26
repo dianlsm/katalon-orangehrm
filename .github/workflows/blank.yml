@@ -26,6 +26,6 @@ jobs:
  
           version: '11.0.0' 
           projectPath: '${{ github.workspace }}'
-          args: '-noSplash -browserType="Chrome" -retry=0 -statusDelay=15 -testSuitePath="Test Suites/TS_Login"'
+          args: '-noSplash -browserType="Chrome" -retry=0 -statusDelay=15 -testSuitePath="Test Suites/TS_Login" --projectID=355318'
         env:
           KATALON_API_KEY: ${{ secrets.KATALON_TOKEN }}
