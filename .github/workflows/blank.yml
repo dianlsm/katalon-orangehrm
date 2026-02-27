@@ -3,7 +3,7 @@ name: Katalon Studio Execution Example
 on:
   push:
     branches: [ "main" ]
-  workflow_dispatch: # Supaya bisa klik "Run workflow" manual di GitHub
+  workflow_dispatch: 
 
 permissions:
   contents: write
@@ -16,14 +16,10 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-        # with:
-        #   token: ${{ secrets.KATALON_TOKEN }} 
-        #   persist-credentials: false
 
       - name: Run Katalon Studio Project
-        uses: katalon-studio/katalon-studio-github-action@v2
+        uses: katalon-studio/katalon-studio-github-action@v3
         with:
- 
           version: '11.0.0' 
           projectPath: '${{ github.workspace }}'
           args: '-noSplash -browserType="Chrome" -retry=0 -statusDelay=15 -testSuitePath="Test Suites/TS_Login" --projectID=355318'
