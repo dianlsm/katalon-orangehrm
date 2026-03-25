@@ -19,6 +19,8 @@ import org.openqa.selenium.Keys as Keys
 
 WebUI.openBrowser('')
 
+WebUI.maximizeWindow()
+
 WebUI.navigateToUrl('https://opensource-demo.orangehrmlive.com/')
 
 WebUI.setText(findTestObject('Login Page/input_Username_username'), 'Admin')
